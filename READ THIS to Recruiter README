@@ -3,7 +3,8 @@
 ## To prepare this project I used a create-react-app
 
  # I configured a whole project in way to run all what You need by only typing a "npm start".
-    So please type "npm install" and "npm start". I didn't create node autostart for build part.
+    So please type "npm install" and "npm start".
+    I didn't create node autostart for build part.
 
 - Webpack, Express are already built-in into c-r-a.
     You can find webpack config file in node_modules/react-scripts.
