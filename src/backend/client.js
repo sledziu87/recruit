@@ -1,13 +1,28 @@
 const soap = require('soap');
 const url = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
 
-const args = {  // todo check is it good, using const at this place
-    countryCode: 'PL',
-    vatNumber:  "5832968619",
+module.exports = {
+    checkVat: function(NIP){
+        return new Promise(function(resolve, reject) {
+
+            const args = {
+                countryCode: 'PL',
+                vatNumber:  NIP,
+            };
+
+            soap.createClient(url, function(err, client) {
+                err
+                    ? reject(err)
+                    : (client.checkVat(args, function(err, result){
+                        err
+                            ? reject(err)
+                            :(((result.name === '---') && (result.address === '---'))
+                                ? reject( { error: "the NIP is incorrect"})
+                                : resolve(result));
+                    }));
+            });
+        })
+    }
+
 };
 
-soap.createClient(url, function(err, client) {
-    client.checkVat(args, function(err, result) {
-        console.log(result);
-    });
-});

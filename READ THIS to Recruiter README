@@ -1,13 +1,14 @@
 ####
 
-## To prepare this project I used a create-react-app
+## To prepare this project I used a Create-React-App
 
  # I configured a whole project in way to run all what You need by only typing a "npm start".
     So please type "npm install" and "npm start".
-    I didn't create node autostart for build part.
+    I didn't create backend autostart for build part. 
 
-- Webpack, Express are already built-in into c-r-a.
+- Webpack, Express are already built-in into C-R-A.
     You can find webpack config file in node_modules/react-scripts.
+    To avoid conflicts I didn't doubled them (Webpack, Express). In consequence Webstorm or any similar may not mark connections to Express.
 
 - Express app.listen(3300)
 
