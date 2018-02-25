@@ -17,8 +17,10 @@ module.exports = {
                         err
                             ? reject(err)
                             :(((result.name === '---') && (result.address === '---'))
-                                ? reject( { error: "the NIP is incorrect"})
-                                : resolve(result));
+                                ? reject({ error: "incorrect NIP number"})
+                                : (((result.name === '') && (result.address === ''))
+                                    ? reject({ result: "That company is not VAT payer"})
+                                    : resolve(result)));
                     }));
             });
         })
