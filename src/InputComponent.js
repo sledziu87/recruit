@@ -21,7 +21,7 @@ class InputComp extends React.Component {
         handleClick(event){
         event.preventDefault();
         const dataLoader = new XMLHttpRequest();
-        dataLoader.open('GET', "http://jsonplaceholder.typicode.com/users?phone="+"024-648-3804" ); //024-648-3804 Add var with OnChange  todo change request to defined by task !
+        dataLoader.open('GET', "http://jsonplaceholder.typicode.com/users?phone="+"024-648-3804" ); //024-648-3804 dodac zmienna z onchange todo change request to defined by task !
             //todo Build and use value frome input in exch of typed phone nr
             dataLoader.onload = () => {
                 this.setState({data: dataLoader.responseText});
