@@ -21,8 +21,7 @@ class InputComp extends React.Component {
         handleClick(event){
         event.preventDefault();
         const dataLoader = new XMLHttpRequest();
-        dataLoader.open('GET', "http://jsonplaceholder.typicode.com/users?phone="+"024-648-3804" ); //024-648-3804 dodac zmienna z onchange todo change request to defined by task !
-            //todo Build and use value frome input in exch of typed phone nr
+             dataLoader.open('GET', "http://localhost:3300/check-vat/9570868421");
             dataLoader.onload = () => {
                 this.setState({data: dataLoader.responseText});
             };
@@ -37,8 +36,6 @@ class InputComp extends React.Component {
           <div>
               <form>
                   <input type="text" placeholder="type NIP" name="nip" required="required" onChange={this.onChange} value={this.state.nip}/>
-                  {/* At this place is required info for specific way to type NIP  */}
-
                   <input type="button" value="SEND REQUEST" onClick={this.handleClick}/> {/* handleClick*/}
               </form>
               <textarea cols="50" rows="30" value={data}/> {/* place for imported info.  */}

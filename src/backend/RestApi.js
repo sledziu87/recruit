@@ -1,6 +1,8 @@
 const express = require ('express');
 const client = require ('./client.js');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 
 app.get('/check-vat/:NIP', function (req, res){
 

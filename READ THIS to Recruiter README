@@ -9,6 +9,7 @@
 - Webpack, Express are already built-in into C-R-A.
     You can find webpack config file in node_modules/react-scripts.
     To avoid conflicts I didn't doubled them (Webpack, Express). In consequence Webstorm or any similar may not mark connections to Express.
+    EDIT: I decided to install express and add it to package.json. Just because the highlights are really helpful.
 
 - Express app.listen(3300)
 
