@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import InputComp from './InputComponent';
+import InputComp from './input/InputComponent';
 
 class App extends Component {
   render() {
