@@ -1,6 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import './Output.css';
+import InputComp from'../input/InputComponent';
 import axios from "axios";
 
 class Output extends Component {
@@ -11,37 +12,32 @@ class Output extends Component {
             data: [],
             valid: "",
             address: "",
-            NIP: "7272570554",
-            error: "",
-
+            nip: "",
+            // error: "",
         }
     };
 
-    componentDidMount() {
-        axios.get("http://localhost:3300/check-vat/" + this.state.NIP)
-            .then(res => {
-                this.setState({
-                    data: res.data,
-                    name: res.data.name,
-                    address: res.data.address,
-                    error: res.data.error,
+    sendRequest = () =>  {
+            axios.get("http://localhost:3300/check-vat/" + this.state.nip)
+                .then(res => {
+                    this.setState({
+                        data: res.data,
+                        name: res.data.name,
+                        address: res.data.address,
+                        // error: res.data.error,
+                    })
                 })
-            })
-    }
+    };
 
-
-    handleClick = (e) => {
-        e.preventDefault();
-    //    FOR BUTTON
-    }
+    typeNip = ({currentTarget: t}) => this.setState({nip: t.value});
 
     render() {
-
         return (
             <div>
+                <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
                 <ul >
                     <li> NIP: </li>
-                    <li>  { this.state.NIP} </li>
+                    <li>  { this.state.nip} </li>
                 </ul>
                 <ul>
                     <li> Company name:  </li>
@@ -51,6 +47,7 @@ class Output extends Component {
                     <li> Address: </li>
                     <li> {this.state.address } </li>
                 </ul>
+                {console.log(this.state.nip)}
             </div>
         )
     }

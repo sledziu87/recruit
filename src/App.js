@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import InputComp from './input/InputComponent';
+// import InputComp from './input/InputComponent';
+import Output from './output/Output';
+
 
 class App extends Component {
   render() {
@@ -9,7 +11,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Check VAT Service</h1>
         </header>
-          <InputComp/>
+          {/*<InputComp/>*/}
+          <Output/>
       </div>
     );
   }
