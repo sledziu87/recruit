@@ -10,10 +10,6 @@ class Output extends Component {
         super(props);
         this.state = {
             data: [],
-            valid: "",
-            address: "",
-            nip: "",
-            // error: "",
         }
     };
 
@@ -24,7 +20,7 @@ class Output extends Component {
                         data: res.data,
                         name: res.data.name,
                         address: res.data.address,
-                        // error: res.data.error,
+                        nipCode: res.data.vatNumber,
                     })
                 })
     };
@@ -37,7 +33,7 @@ class Output extends Component {
                 <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
                 <ul >
                     <li> NIP: </li>
-                    <li>  { this.state.nip} </li>
+                    <li> { this.state.nipCode} </li>
                 </ul>
                 <ul>
                     <li> Company name:  </li>
@@ -47,7 +43,6 @@ class Output extends Component {
                     <li> Address: </li>
                     <li> {this.state.address } </li>
                 </ul>
-                {console.log(this.state.nip)}
             </div>
         )
     }
