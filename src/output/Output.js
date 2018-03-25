@@ -13,6 +13,7 @@ class Output extends Component {
         this.state = {
             data: [],
             showInfo: false,
+            valid:"",
         }
     };
 
@@ -23,20 +24,34 @@ class Output extends Component {
         );
     };
 
-    sendRequest = () =>  {
-        (this.state.nip === undefined) || (this.state.nip.length !== 10 )
-            ? (this.errorMessageT())
-            // option with no VAT payment and bug in 10 numb.
-            : ( (axios.get("http://localhost:3300/check-vat/" + this.state.nip)
+    sendRequest = (e) =>{
+    e.preventDefault();
+       /* (this.state.nip === undefined) || (this.state.nip.length !== 10 ) // TODO check what will be if I  will put it after GET action ! Check it at sequence: clear -> enter, put sth - enter, clear - enter, put sth correct - enter, clear - enter */
+            // ? (this.errorMessageT())
+            ( (axios.get("http://localhost:3300/check-vat/" + this.state.nip)
                       .then(res => {
                           this.setState({
                               data: res.data,
                               name: res.data.name,
                               address: res.data.address,
                               nipCode: res.data.vatNumber,
-                          })
+                              valid: res.data.valid,
+                          });
+                          console.log(res, "resssss", res.data.valid , "valid is true now !");
+                          
                       })
-                  ) && (this.errorMessageF())
+                        .catch(err=> {
+                            this.setState({
+                                err: err.request,
+
+                            });
+                            console.log(err , "err", err.request, "err r", err.request.responseText , "rText")
+                        })
+                )
+                // && (console.log(this.state.res.data))
+                  // ) && (this.state.valid === false
+                  //       ? (console.log("nie placi"))
+                  //       : (this.errorMessageF()) )
             )
     };
 
@@ -61,6 +76,7 @@ class Output extends Component {
     typeNip = ({currentTarget: t}) => this.setState({nip: t.value});
 
     render() {
+
         return (
             <div>
                 {this.messageShow()}
