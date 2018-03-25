@@ -2,6 +2,8 @@ import React from 'react';
 import {Component} from 'react';
 import './Output.css';
 import InputComp from'../input/InputComponent';
+import Message from "../message/Message";
+import Notepad from "../img/notepad.png";
 import axios from "axios";
 
 class Output extends Component {
@@ -10,27 +12,46 @@ class Output extends Component {
         super(props);
         this.state = {
             data: [],
+            showInfo: false,
         }
     };
 
-    sendRequest = () =>  {
-        (this.state.nip === undefined)
-            ? console.log("undefined") // DO NOT DELLETE THIS CONSOLE. LEFT IT FOR CODE REVIEW
-            : (this.state.nip.length !== 10 )
-                ? console.log(" !== 10 ")   // DO NOT DELLETE THIS CONSOLE. LEFT IT FOR CODE REVIEW
-                : ( axios.get("http://localhost:3300/check-vat/" + this.state.nip)
-                        .then(res => {
-                            this.setState({
-                                data: res.data,
-                                name: res.data.name,
-                                address: res.data.address,
-                                nipCode: res.data.vatNumber,
-                            })
-                        })
-                    )
+    messageShow = () => {
+        return(this.state.showInfo
+            ? <Message/>
+            : <img src={Notepad} alt={"photo_of_Notepad"}/>
+        );
     };
 
-    errorMessageOne = () => {}; // message for upper error undef. && !=10
+    sendRequest = () =>  {
+        (this.state.nip === undefined) || (this.state.nip.length !== 10 )
+            ? (this.errorMessageT())
+            // option with no VAT payment and bug in 10 numb.
+            : ( (axios.get("http://localhost:3300/check-vat/" + this.state.nip)
+                      .then(res => {
+                          this.setState({
+                              data: res.data,
+                              name: res.data.name,
+                              address: res.data.address,
+                              nipCode: res.data.vatNumber,
+                          })
+                      })
+                  ) && (this.errorMessageF())
+            )
+    };
+
+    errorMessageT = () => {
+        this.setState({
+            showInfo: true,
+            nipCode: "x",
+            name: "x",
+            address: "x",
+        })
+    };
+    errorMessageF = () => {
+        this.setState({showInfo: false})
+    };
+
 
     // TODO:
     // idea is that:
@@ -42,6 +63,7 @@ class Output extends Component {
     render() {
         return (
             <div>
+                {this.messageShow()}
                 <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
                 <ul >
                     <li> NIP: </li>
