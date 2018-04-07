@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-// import InputComp from './input/InputComponent';
 import Output from './output/Output';
+import ModalWindow from "./modal/ModalWindow";
 
 
 class App extends Component {
@@ -11,8 +11,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Check VAT Service</h1>
         </header>
-          {/*<InputComp/>*/}
           <Output/>
+          <ModalWindow/>
       </div>
     );
   }

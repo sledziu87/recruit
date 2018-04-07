@@ -63,8 +63,7 @@ class Output extends Component {
         this.setState({showInfo: false})
     };
 
-
-    // TODO:
+   // TODO:
     // NEED TO:
     // 1. clear result / or / show correct result if typed NIP belong to NOT VAT payer
     // 2. present right message (main idea sub-task)
