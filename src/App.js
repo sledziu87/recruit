@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Output from './output/Output';
-import ModalWindow from "./modal/ModalWindow";
+
 
 
 class App extends Component {
@@ -12,7 +12,6 @@ class App extends Component {
           <h1 className="App-title">Check VAT Service</h1>
         </header>
           <Output/>
-          <ModalWindow/>
       </div>
     );
   }

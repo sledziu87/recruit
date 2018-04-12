@@ -6,8 +6,8 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
 class ModalWindow extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             modalIsOpen: false
@@ -28,7 +28,7 @@ class ModalWindow extends Component {
                 <button onClick={this.openModal}>Open Modal</button>
                 <Modal
                     isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
+                    // onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
                     className="content size-test"
                     contentLabel="Archive of requests "
