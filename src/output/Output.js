@@ -5,7 +5,7 @@ import InputComp from'../input/InputComponent';
 import Message from "../message/Message";
 import Notepad from "../img/notepad.png";
 import axios from "axios";
-// import ModalWindow from "../modal/ModalWindow";
+import ModalWindow from "../modal/ModalWindow";
 
 class Output extends Component {
 
@@ -14,6 +14,7 @@ class Output extends Component {
         this.state = {
             data: [],
             showInfo: false,
+            round: 0,
         }
     };
 
@@ -39,6 +40,7 @@ class Output extends Component {
                     });
                     this.errorMessageF();
                     this.setLocalStorage();
+                    // this.secondOption();
                     // console.log(res, "resssss", res.data.valid , "valid is true now !");
                 })
                 // .then(action => {this.setLocalStorage(); console.log(action, " action ");})
@@ -66,43 +68,120 @@ class Output extends Component {
     //     // function (this.address)() { console.log("s")};
     // }
 
+    // IDEA 3 !!
+
+
     setLocalStorage = () => {
-        let retrieval = [],
-            sample = localStorage.getItem("item");
-
-        console.log (sample , " sample");
-
-        if (sample === null ) { localStorage.setItem("item", JSON.stringify(retrieval));
-        console.log(" zyje ") }
-
-        let obj = {
-            [this.state.nipCode]: {
-                'company': this.state.name,
-                'address': this.state.address
-            }
+        const obj = {
+            'nip': this.state.nipCode,
+            'company': this.state.name,
+            'address': this.state.address
         };
+        localStorage.setItem("item", JSON.stringify(obj));
+    };
 
-        console.log(retrieval, " ret");
-        console.log(obj, " obj");
+    // TO DELETE:
 
-        retrieval = JSON.parse(localStorage.getItem("item"));
+    // let retrieval = [];
+            // sample =  JSON.parse(localStorage.getItem("item"));
 
-        console.log(retrieval, " ret2");
-        console.log(obj, " obj2");
+        // console.log (sample , " sample");
+
+        // if (sample === null ) {
+        //     localStorage.setItem("item", JSON.stringify(retrieval));
+        // }
+
+
+        // console.log(retrieval, " ret");
+        // console.log(obj, " obj");
+
+        // retrieval = JSON.parse(localStorage.getItem("item"));
+
+        // console.log(retrieval, " ret2");
+        // console.log(obj, " obj2");
         // if ()
 
-        retrieval.push(obj);
+        // retrieval.push(obj);
 
-        console.log(retrieval, " ret3");
-        console.log(obj, " obj3");
+        // console.log(retrieval, " ret3");
+        // console.log(obj, " obj3");
 
-        localStorage.setItem("item", JSON.stringify(retrieval));
-        console.log(localStorage.getItem("item"));
-        console.log(retrieval[5], " 5ci ");
-        console.log(retrieval.length);
+        // console.log(localStorage.getItem("item"));
+        // console.log(retrieval[5], " 5ci ");
+        // console.log(retrieval.length);
 
         // retrieval = this.setState.recovery;
-    };
+
+
+    /*       // IDEA NR 2 !!!
+   setLocalStorage = () => {
+
+       let name = String(this.state.round),
+           value= {
+           'nip': this.state.nipCode,
+           'company': this.state.name,
+           'address': this.state.address
+           };
+       const change = this.state.round + 1;
+
+         localStorage.setItem(name, JSON.stringify(value));
+
+           this.setState({round: change});
+
+   };
+  */ // IDEA NR 2 END!!!
+
+     /*   // IDEA 1
+    //
+    // setLocalStorage = () => {
+    //     let retrieval = [],
+    //         sample =  JSON.parse(localStorage.getItem("item"));
+    //
+    //     console.log (sample , " sample");
+    //
+    //     if (sample === null ) {
+    //         localStorage.setItem("item", JSON.stringify(retrieval));
+    //     }
+    //
+    //     let obj = {
+    //         [this.state.nipCode]: [{
+    //             'company': this.state.name,
+    //             'address': this.state.address
+    //         }]
+    //     };
+    //
+    //     // let obj = {
+    //     //     [this.state.nipCode]: {
+    //     //         'company': this.state.name,
+    //     //         'address': this.state.address
+    //     //     }
+    //     // };
+    //
+    //     // console.log(retrieval, " ret");
+    //     // console.log(obj, " obj");
+    //
+    //     retrieval = JSON.parse(localStorage.getItem("item"));
+    //
+    //     // console.log(retrieval, " ret2");
+    //     // console.log(obj, " obj2");
+    //     // if ()
+    //
+    //     retrieval.push(obj);
+    //
+    //     // console.log(retrieval, " ret3");
+    //     // console.log(obj, " obj3");
+    //
+    //     localStorage.setItem("item", JSON.stringify(retrieval));
+    //     // console.log(localStorage.getItem("item"));
+    //     // console.log(retrieval[5], " 5ci ");
+    //     // console.log(retrieval.length);
+    //
+    //     // retrieval = this.setState.recovery;
+    // };
+
+    END OF IDEA 1 */
+
+
 
 // LocalStorage = (info) => {
 //         let retrieval = [];
@@ -192,7 +271,7 @@ class Output extends Component {
                     <li> test: </li>
                     <li>  </li>
                 </ul>
-                {/*<ModalWindow setLocalStorageOrigin={this.setLocalStorage}/>*/}
+                <ModalWindow />
 
                 {/*<button onClick={this.onAction}>result of L.S.</button>*/}
                 {/* TODO this is only for try. Give here some props and move it do modal section. Add a button to remove data from LocalStorage*/}

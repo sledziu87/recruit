@@ -12,6 +12,7 @@ class App extends Component {
           <h1 className="App-title">Check VAT Service</h1>
         </header>
           <Output/>
+
       </div>
     );
   }
