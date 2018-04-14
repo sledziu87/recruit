@@ -13,7 +13,9 @@ class ModalBody extends Component {
 
     componentDidMount() {
         const respond = JSON.parse(localStorage.getItem("item"));
-        this.setState({data: respond})
+        respond === null
+            ? this.setState({data: [[["No result"],["No result"],["No result"]]]})
+            : this.setState({data: respond})
     }
 
 
