@@ -14,7 +14,7 @@ class Output extends Component {
         this.state = {
             data: [],
             showInfo: false,
-            round: 0,
+            // round: 0,
         }
     };
 
@@ -71,14 +71,14 @@ class Output extends Component {
     // IDEA 3 !!
 
 
-    setLocalStorage = () => {
-        const obj = {
-            'nip': this.state.nipCode,
-            'company': this.state.name,
-            'address': this.state.address
-        };
-        localStorage.setItem("item", JSON.stringify(obj));
-    };
+    // setLocalStorage2 = () => {
+    //     const obj = {
+    //         'nip': this.state.nipCode,
+    //         'company': this.state.name,
+    //         'address': this.state.address
+    //     };
+    //     localStorage.setItem("item", JSON.stringify(obj));
+    // };
 
     // TO DELETE:
 
@@ -131,55 +131,62 @@ class Output extends Component {
    };
   */ // IDEA NR 2 END!!!
 
-     /*   // IDEA 1
-    //
-    // setLocalStorage = () => {
-    //     let retrieval = [],
-    //         sample =  JSON.parse(localStorage.getItem("item"));
-    //
-    //     console.log (sample , " sample");
-    //
-    //     if (sample === null ) {
-    //         localStorage.setItem("item", JSON.stringify(retrieval));
-    //     }
-    //
-    //     let obj = {
-    //         [this.state.nipCode]: [{
-    //             'company': this.state.name,
-    //             'address': this.state.address
-    //         }]
-    //     };
-    //
-    //     // let obj = {
-    //     //     [this.state.nipCode]: {
-    //     //         'company': this.state.name,
-    //     //         'address': this.state.address
-    //     //     }
-    //     // };
-    //
-    //     // console.log(retrieval, " ret");
-    //     // console.log(obj, " obj");
-    //
-    //     retrieval = JSON.parse(localStorage.getItem("item"));
-    //
-    //     // console.log(retrieval, " ret2");
-    //     // console.log(obj, " obj2");
-    //     // if ()
-    //
-    //     retrieval.push(obj);
-    //
-    //     // console.log(retrieval, " ret3");
-    //     // console.log(obj, " obj3");
-    //
-    //     localStorage.setItem("item", JSON.stringify(retrieval));
-    //     // console.log(localStorage.getItem("item"));
-    //     // console.log(retrieval[5], " 5ci ");
-    //     // console.log(retrieval.length);
-    //
-    //     // retrieval = this.setState.recovery;
-    // };
+        // IDEA 1
 
-    END OF IDEA 1 */
+    setLocalStorage = () => {
+        let retrieval = [],
+            sample =  JSON.parse(localStorage.getItem("item"));
+
+        // console.log (sample , " sample");
+
+        if (sample === null ) {
+            localStorage.setItem("item", JSON.stringify(retrieval));
+        }
+
+        // let obj = {
+        //         "nip": this.state.nipCode,
+        //         'company': this.state.name,
+        //         'address': this.state.address
+        //
+        // };
+
+        let arr = [
+            this.state.nipCode,
+            this.state.name,
+            this.state.address
+
+        ];
+
+        // let obj = {
+        //     [this.state.nipCode]: {
+        //         'company': this.state.name,
+        //         'address': this.state.address
+        //     }
+        // };
+
+        // console.log(retrieval, " ret");
+        // console.log(obj, " obj");
+
+        retrieval = JSON.parse(localStorage.getItem("item"));
+
+        // console.log(retrieval, " ret2");
+        // console.log(obj, " obj2");
+        // if ()
+
+        retrieval.push(arr);
+
+        // console.log(retrieval, " ret3");
+        // console.log(obj, " obj3");
+
+        localStorage.setItem("item", JSON.stringify(retrieval));
+        // console.log(localStorage.getItem("item"));
+        // console.log(retrieval[5], " 5ci ");
+        // console.log(retrieval.length);
+
+        // retrieval = this.setState.recovery;
+    };
+
+    // END OF IDEA 1
 
 
 
@@ -274,7 +281,7 @@ class Output extends Component {
                 <ModalWindow />
 
                 {/*<button onClick={this.onAction}>result of L.S.</button>*/}
-                {/* TODO this is only for try. Give here some props and move it do modal section. Add a button to remove data from LocalStorage*/}
+
             </div>
         )
     }

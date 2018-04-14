@@ -12,20 +12,20 @@ class ModalBody extends Component {
     }
 
     componentDidMount() {
-        const retrieval = JSON.parse(localStorage.getItem("item"));
-        this.setState({data: retrieval})
+        const respond = JSON.parse(localStorage.getItem("item"));
+        this.setState({data: respond})
     }
 
 
     storageStuff = (arg, index) => {
         return (
-            <ul>
+            <ul key={index}>
                 <li>NIP</li>
-                <li> {} </li>
+                <li> {arg[0]} </li>
                 <li> COMPANY </li>
-                <li> {} </li>
+                <li> {arg[1]} </li>
                 <li> ADDRESS </li>
-                <li> {} </li>
+                <li> {arg[2]} </li>
             </ul>
         )
     };
@@ -36,14 +36,8 @@ class ModalBody extends Component {
 
         return (
             <div>
-         
-                {Object.keys(data).map((arg, index) => (
-                    <li key={index}>
-                        key: {index} Name: {data[arg]}
-                    </li>
-
-                    )
-                )}
+                {
+                    this.state.data.map((item, index) => this.storageStuff(item, index))}
 
             </div>
         )
