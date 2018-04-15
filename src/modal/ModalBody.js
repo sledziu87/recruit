@@ -18,7 +18,6 @@ class ModalBody extends Component {
             : this.setState({data: respond})
     }
 
-
     storageStuff = (arg, index) => {
         return (
             <ul key={index}>
@@ -34,17 +33,13 @@ class ModalBody extends Component {
 
     render() {
         const {data} = this.state;
-        console.log(data, " dat");
+        console.log(data, " data");
 
         return (
             <div>
-                {
-                    this.state.data.map((item, index) => this.storageStuff(item, index))}
-
+                {this.state.data.map((item, index) => this.storageStuff(item, index))}
             </div>
         )
-
-
     }
 }
 

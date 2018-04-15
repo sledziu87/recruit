@@ -1,7 +1,6 @@
 import React from 'react';
 import './InputComponent.css';
 
-
 class InputComp extends React.Component {
 
     render () {
@@ -12,7 +11,6 @@ class InputComp extends React.Component {
                     <button type="submit" onClick={this.props.sendRequestOrigin}> SEND REQUEST</button>
                 </form>
             </div>
-
         );
     }
 }
