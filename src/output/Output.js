@@ -5,6 +5,7 @@ import InputComp from'../input/InputComponent';
 import Message from "../message/Message";
 import Notepad from "../img/notepad.png";
 import axios from "axios";
+import ModalWindow from "../modal/ModalWindow";
 
 class Output extends Component {
 
@@ -13,8 +14,6 @@ class Output extends Component {
         this.state = {
             data: [],
             showInfo: false,
-            valid:"",
-
         }
     };
 
@@ -33,21 +32,34 @@ class Output extends Component {
                 .then(res => {
                     this.setState({
                         data: res.data,
-                        name: res.data.name,
-                        address: res.data.address,
-                        nipCode: res.data.vatNumber,
+                        name: String(res.data.name),
+                        address: String(res.data.address),
+                        nipCode: String(res.data.vatNumber),
+
                     });
                     this.errorMessageF();
-                    //console.log(res, "resssss", res.data.valid , "valid is true now !");
-                })
-                .catch(err => {
-                    (err.responseText !== null )
-                        ? ((console.log( " message -> ", err.request.responseText)) && (this.errorMessageT()) )
-                        : console.log(err.request.statusText, " else !! ");
-
-                            // console.log(err , "err", err.request, "err r", err.request.responseText , "rText")
+                    this.setLocalStorage();
                 })
             ))
+    };
+
+    setLocalStorage = () => {
+        let retrieval = [],
+            sample =  JSON.parse(localStorage.getItem("item"));
+
+        if (sample === null ) {
+            localStorage.setItem("item", JSON.stringify(retrieval));
+        }
+
+        let arr = [
+            this.state.nipCode,
+            this.state.name,
+            this.state.address
+        ];
+
+        retrieval = JSON.parse(localStorage.getItem("item"));
+        retrieval.push(arr);
+        localStorage.setItem("item", JSON.stringify(retrieval));
     };
 
     errorMessageT = () => {
@@ -63,8 +75,7 @@ class Output extends Component {
         this.setState({showInfo: false})
     };
 
-
-    // TODO:
+   // TODO:
     // NEED TO:
     // 1. clear result / or / show correct result if typed NIP belong to NOT VAT payer
     // 2. present right message (main idea sub-task)
@@ -93,6 +104,11 @@ class Output extends Component {
                     <li> Address: </li>
                     <li> {this.state.address } </li>
                 </ul>
+                <ul >
+                    <li> test: </li>
+                    <li>  </li>
+                </ul>
+                <ModalWindow />
             </div>
         )
     }
