@@ -26,7 +26,7 @@ class Output extends Component {
 
     sendRequest = (e) =>{
     e.preventDefault();
-        (this.state.nip === undefined) || (this.state.nip.length !== 10 )
+        (this.state.nip === undefined) || (this.state.nip.length !== 10 ) || (isNaN(this.state.nip)===true)
             ? (this.errorMessageT())
             : ((axios.get("http://localhost:3300/check-vat/" + this.state.nip)
                 .then(res => {
@@ -40,6 +40,14 @@ class Output extends Component {
                     this.errorMessageF();
                     this.setLocalStorage();
                 })
+                    .catch(err=> {
+                        this.setState({
+                            err: err.request,
+
+                        });
+                        console.log(err.request.responseText , "<- errRequestResponseText");
+                        console.log(err , " err", err.request, " err request")
+                    })
             ))
     };
 
@@ -77,12 +85,8 @@ class Output extends Component {
 
    // TODO:
     // NEED TO:
-    // 1. clear result / or / show correct result if typed NIP belong to NOT VAT payer
-    // 2. present right message (main idea sub-task)
+    // Show Error ResponseText at main page view
 
-    // idea is that:
-    // Hide a message for user in some text area. If he will put a incorrect NIP show him  massage e.g. under input
-    // " NIP should have (or need to have) 10 numbers without spaces, letters or any special brace "
 
     typeNip = ({currentTarget: t}) => this.setState({nip: t.value});
 
@@ -103,10 +107,6 @@ class Output extends Component {
                 <ul >
                     <li> Address: </li>
                     <li> {this.state.address } </li>
-                </ul>
-                <ul >
-                    <li> test: </li>
-                    <li>  </li>
                 </ul>
                 <ModalWindow />
             </div>
