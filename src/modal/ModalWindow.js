@@ -4,7 +4,7 @@ import './ModalWindow.css';
 import ModalBody from "./ModalBody";
 import Modal from 'react-modal';
 
-Modal.setAppElement('#root');
+Modal.setAppElement('body');
 
 class ModalWindow extends Component {
     constructor(props) {
