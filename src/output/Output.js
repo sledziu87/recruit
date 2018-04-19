@@ -91,7 +91,7 @@ class Output extends Component {
     typeNip = ({currentTarget: t}) => this.setState({nip: t.value});
 
     render() {
-
+        const varForTest = this.state.showInfo;
         return (
             <div>
                 {this.messageShow()}

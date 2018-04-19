@@ -16,3 +16,9 @@
 - SASS
     With reference to sub-task I add and configured SASS.
 
+- TESTS
+    C-R-A already have integrated tool for tests called "Jest". It can be used with "Enzyme". I used them together for tests.
+    Shallow from Enzyme allow to test components in isolation.
+    To start tests please type in "npm test".
+    I prepared few demonstration tests.
+    To run tests please type in "npm test" and next press "a". Tests are not prepared to be called individual.
