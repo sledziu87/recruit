@@ -90,7 +90,7 @@ class Output extends Component {
 
     render() {
         const hasError = this.state.error !== null;
-
+      
         return (
             <div>
                 {this.messageShow()}
