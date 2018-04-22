@@ -39,7 +39,6 @@ class Output extends Component {
                     });
                     this.errorMessageF();
                     this.setLocalStorage();
-
                 })
                     .catch(err=> {
                         this.setState({
