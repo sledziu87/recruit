@@ -39,7 +39,6 @@ class Output extends Component {
                     });
                     this.errorMessageF();
                     this.setLocalStorage();
-
                 })
                     .catch(err=> {
                         this.setState({
@@ -90,7 +89,7 @@ class Output extends Component {
 
     render() {
         const hasError = this.state.error !== null;
-      
+
         return (
             <div>
                 {this.messageShow()}
