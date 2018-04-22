@@ -14,6 +14,7 @@ class Output extends Component {
         this.state = {
             data: [],
             showInfo: false,
+            error: null,
         }
     };
 
@@ -35,18 +36,18 @@ class Output extends Component {
                         name: String(res.data.name),
                         address: String(res.data.address),
                         nipCode: String(res.data.vatNumber),
-
                     });
                     this.errorMessageF();
                     this.setLocalStorage();
+
                 })
                     .catch(err=> {
                         this.setState({
                             err: err.request,
 
                         });
-                        console.log(err.request.responseText , "<- errRequestResponseText");
-                        console.log(err , " err", err.request, " err request")
+                        this.errorMessageT();
+                        this.setState({error: err.request.responseText});
                     })
             ))
     };
@@ -80,34 +81,39 @@ class Output extends Component {
 
     };
     errorMessageF = () => {
-        this.setState({showInfo: false})
+        this.setState({showInfo: false});
+        this.setState({error: null});
+
     };
-
-   // TODO:
-    // NEED TO:
-    // Show Error ResponseText at main page view
-
 
     typeNip = ({currentTarget: t}) => this.setState({nip: t.value});
 
     render() {
+        const hasError = this.state.error !== null;
 
         return (
             <div>
                 {this.messageShow()}
                 <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
-                <ul >
-                    <li> NIP: </li>
-                    <li> { this.state.nipCode} </li>
-                </ul>
-                <ul>
-                    <li> Company name:  </li>
-                    <li> {this.state.name} </li>
-                </ul>
-                <ul >
-                    <li> Address: </li>
-                    <li> {this.state.address } </li>
-                </ul>
+                {
+                    hasError
+                        ? (<b>{this.state.error}</b>)
+                        : (
+                    <React.Fragment>
+                        <ul>
+                            <li> NIP:</li>
+                            <li> {this.state.nipCode} </li>
+                        </ul>
+                        <ul>
+                            < li> Company name:</li>
+                            <li> {this.state.name} </li>
+                        </ul>
+                        <ul>
+                            <li> Address:</li>
+                            <li> {this.state.address} </li>
+                        </ul>
+                    </React.Fragment>
+                )}
                 <ModalWindow />
             </div>
         )
