@@ -2,8 +2,8 @@ import React from 'react';
 import {Component} from 'react';
 import './Output.css';
 import InputComp from'../input/InputComponent';
-import Message from "../message/Message";
-import Notepad from "../img/notepad.png";
+import Message from "../img_and_message/Message";
+import Image from "../img_and_message/Img";
 import axios from "axios";
 import ModalWindow from "../modal/ModalWindow";
 
@@ -21,7 +21,7 @@ class Output extends Component {
     messageShow = () => {
         return(this.state.showInfo
             ? <Message/>
-            : <img src={Notepad} alt={"photo_of_Notepad"}/>
+            : <Image/>
         );
     };
 
@@ -90,9 +90,10 @@ class Output extends Component {
     render() {
         const hasError = this.state.error !== null;
 
-        return (
-            <div>
+        return (                    <div className="xyz">
                 {this.messageShow()}
+
+        <div className="pinpoint">
                 <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
                 {
                     hasError
@@ -107,14 +108,14 @@ class Output extends Component {
                             < li> Company name:</li>
                             <li> {this.state.name} </li>
                         </ul>
-                        <ul>
+                        <ul className="last_pinpoint">
                             <li> Address:</li>
                             <li> {this.state.address} </li>
                         </ul>
                     </React.Fragment>
                 )}
                 <ModalWindow />
-            </div>
+        </div> </div>
         )
     }
 }

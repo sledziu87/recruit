@@ -31,23 +31,23 @@ class ModalWindow extends Component {
         return (
 
             <div>
-                <button onClick={this.openModal}>Open Modal</button>
+                <button onClick={this.openModal}>OPEN MODAL</button>
 
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
-                    className="content size-test"
+                    className="content min_size"
                     contentLabel="Archive of requests "
                 >
 
-                    <button onClick={this.closeModal}>close</button>
-                    <h2>ARCHIVE</h2>
+                    <button onClick={this.closeModal} className="close_archive_btn"> x </button>
+                    <h2 className="archive_title">ARCHIVE</h2>
 
                    <ModalBody/>
 
                 </Modal>
                 <div>
-                    <button onClick={this.resetMemory}>RESET MEMORY</button>
+                    <button onClick={this.resetMemory}>Reset memory</button>
                 </div>
 
             </div>

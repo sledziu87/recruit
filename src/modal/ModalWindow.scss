@@ -4,7 +4,7 @@
   display: block;
   position: fixed;
   top: 50%;
-  left: 41%;
+  left: 50%;
   right: auto;
   bottom: auto;
   margin-right: -50%;
@@ -12,10 +12,52 @@
   background-color: rgba(255, 255, 255, 1);
   transform: translate(-50%, -50%);
   border: 1px solid rgb(205,205,205);
-  border-radius:4%;
+  border-radius:7px;
   outline: none;
 }
-.size-test{
-  min-width: 30%;
-  min-height: 60%;
+//.size-test{ //TODO CHENGE NAME AND ADD SOME VALUE
+//  min-width: 30%;
+//  min-height: 60%;
+//}
+
+li:nth-child(2n+1) {
+
+  padding-bottom: 1%;
+  padding-top: 1%;
+  font-weight: bold;
 }
+
+.last_pinpoint,
+.modal_body_pin li:last-child{
+  padding-bottom: 4%;
+}
+
+.archive_title{
+  margin-top:1%;
+  text-align: center;
+}
+
+.close_archive_btn{
+  margin-left: 94%;
+  //margin-top: 5%;
+  border:none;
+  //border-radius:100%;
+  //background-color: rgba(0,0,0, 0.6);
+  background-color: white;
+  //box-shadow: inset 0px 0px 22px -3px rgba(0,0,0,0.6);
+  color: black;
+  //color: white;
+  font-weight: bold;
+
+}
+
+.scroller {
+  overflow: auto;
+  max-height: 400px;  // needs media query !
+}
+
+.min_size{
+  height: 30%;
+  width: 30%;
+}
+// todo DONT FORGET TO CENTER MODAL BODY

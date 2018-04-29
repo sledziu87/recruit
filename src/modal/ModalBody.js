@@ -20,13 +20,13 @@ class ModalBody extends Component {
 
     storageStuff = (arg, index) => {
         return (
-            <ul key={index}>
-                <li>NIP</li>
-                <li> {arg[0]} </li>
-                <li> COMPANY </li>
-                <li> {arg[1]} </li>
-                <li> ADDRESS </li>
-                <li> {arg[2]} </li>
+            <ul key={index} className="modal_body_pin">
+                    <li> NIP </li>
+                    <li> {arg[0]} </li>
+                    <li> COMPANY </li>
+                    <li> {arg[1]} </li>
+                    <li> ADDRESS </li>
+                    <li> {arg[2]} </li>
             </ul>
         )
     };
@@ -36,7 +36,7 @@ class ModalBody extends Component {
         console.log(data, " data");
 
         return (
-            <div>
+            <div className="scroller">
                 {this.state.data.map((item, index) => this.storageStuff(item, index))}
             </div>
         )
