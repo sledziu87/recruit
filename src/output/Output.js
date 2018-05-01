@@ -90,32 +90,35 @@ class Output extends Component {
     render() {
         const hasError = this.state.error !== null;
 
-        return (                    <div className="xyz">
-                {this.messageShow()}
-
-        <div className="pinpoint">
-                <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
-                {
-                    hasError
-                        ? (<b>{this.state.error}</b>)
-                        : (
-                    <React.Fragment>
-                        <ul>
-                            <li> NIP:</li>
-                            <li> {this.state.nipCode} </li>
-                        </ul>
-                        <ul>
-                            < li> Company name:</li>
-                            <li> {this.state.name} </li>
-                        </ul>
-                        <ul className="last_pinpoint">
-                            <li> Address:</li>
-                            <li> {this.state.address} </li>
-                        </ul>
-                    </React.Fragment>
-                )}
-                <ModalWindow />
-        </div> </div>
+        return (
+            <article className="distance">
+                <section className="message_img_section radius">
+                    {this.messageShow()}
+                </section>
+                <section className="pinpoint_section radius distance">
+                    <InputComp typeNipOrigin={this.typeNip} sendRequestOrigin={this.sendRequest}/>
+                    {
+                        hasError
+                            ? (<b>{this.state.error}</b>)
+                            : (
+                        <React.Fragment>
+                            <ul>
+                                <li> NIP:</li>
+                                <li> {this.state.nipCode} </li>
+                            </ul>
+                            <ul>
+                                < li> Company name:</li>
+                                <li> {this.state.name} </li>
+                            </ul>
+                            <ul className="last_pinpoint">
+                                <li> Address:</li>
+                                <li> {this.state.address} </li>
+                            </ul>
+                        </React.Fragment>
+                    )}
+                    <ModalWindow />
+                </section>
+            </article>
         )
     }
 }

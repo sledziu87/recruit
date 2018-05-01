@@ -9,12 +9,12 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Check VAT Service</h1>
-        </header>
-          <Output/>
-      </div>
+      <main className="App">
+              <header className="App-header radius">
+              <h1 className="App-title">Check VAT Service</h1>
+              </header>
+              <Output/>
+      </main>
     );
   }
 }

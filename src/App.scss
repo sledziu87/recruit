@@ -1,15 +1,15 @@
 .App {
   text-align: center;
   margin: 10% auto  ;
-  width: 50%;
-  background-color: silver;     // change to black
+  width: 53%;
+  padding:0 5% 7%;
 }
 
 .App-header {
-  background-color: #222;     // delete
+  background-color: rgba(0,0,0,1);
   height: 100%;
   padding: 5%;
-  color: white;
+  margin-bottom: 5%;
 }
 
 .App-title {

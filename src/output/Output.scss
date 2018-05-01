@@ -1,11 +1,19 @@
-.pinpoint li:nth-child(2n+1){
+.pinpoint_section li:nth-child(2n+1){
   padding-bottom: 1%;
   color:red;
-  //font-weight: lighter;
 }
 
-.xyz{
-  background-color :pink ;
+.pinpoint_section{
+  padding-top:1%;
+  padding-bottom: 1%;
 }
 
-// todo .PINPOINT CLASS: Maybe I should make a MIN HEIGHT for Large Screen etc. Becouse if there is a "INCORRECT NIP" message the view is changing his size.
+.pinpoint_section,
+.message_img_section{
+  background-color:  rgba(3,3,3,0.6);
+  //min-height: 720px;
+}     // TODO: here will be a min-height (mediaQuery needed)
+
+.message_img_section {
+  padding:3%;
+}

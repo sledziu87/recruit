@@ -36,7 +36,7 @@ class ModalWindow extends Component {
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
-                    className="content min_size"
+                    className="content min_size font_color"
                     contentLabel="Archive of requests "
                 >
 
@@ -47,7 +47,7 @@ class ModalWindow extends Component {
 
                 </Modal>
                 <div>
-                    <button onClick={this.resetMemory}>Reset memory</button>
+                    <button onClick={this.resetMemory} className="reset_btn">RESET MEMORY</button>
                 </div>
 
             </div>
