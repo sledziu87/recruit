@@ -1,0 +1,36 @@
+####
+
+## To prepare this project I used a Create-React-App
+
+ # I configured a whole project in way to run all what You need by only typing a "npm start".
+    So please type "npm install" and "npm start".
+    I didn't create backend autostart for build part.
+
+- Webpack, Express are already built-in into C-R-A.
+    You can find webpack config file in node_modules/react-scripts.
+    To avoid conflicts I didn't doubled them (Webpack, Express). In consequence Webstorm or any similar may not mark connections to Express.
+    EDIT: I decided to install express and add it to package.json. Just because the highlights are really helpful.
+
+- Express app.listen(3300)
+
+- SASS
+    With reference to sub-task I add and configured SASS.
+
+- TESTS
+    C-R-A already have integrated tool for tests called "Jest". It can be used with "Enzyme". I used them together for tests.
+    Shallow from Enzyme allow to test components in isolation.
+    To start tests please type in "npm test".
+    I prepared few demonstration tests.
+    To run tests please type in "npm test" and next press "a". Tests are not prepared to be called individual.
+
+- Final speech
+    That project is created only to show my skills. I'm aware of that there are a lot of small details, which I could do better.
+
+####
+
+06-05-2018
+
+Bartosz Śledziński
+sledzinski.bartosz@gmail.com
+
+####

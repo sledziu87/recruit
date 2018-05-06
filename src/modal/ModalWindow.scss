@@ -1,0 +1,59 @@
+.content
+{
+  padding: 10px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 1);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(205,205,205);
+  border-radius:7px;
+  outline: none;
+}
+
+li:nth-child(2n+1) {
+  padding-bottom: 1%;
+  padding-top: 1%;
+  font-weight: bold;
+}
+
+.last_pinpoint,
+.modal_body_pin li:last-child{
+  padding-bottom: 4%;
+}
+
+.archive_title{
+  margin-top:1%;
+  text-align: center;
+}
+
+.close_archive_btn{
+  margin-left: 94%;
+  border:none;
+  background-color: white;
+  font-weight: bold;
+}
+
+.close_archive_btn,
+.font_color{
+  color: black;
+}
+
+.scroller {
+  overflow: auto;
+  max-height: 400px;
+}
+
+.min_size{
+  min-height: 30%;
+  min-width: 30%;
+}
+
+.reset_btn{
+  border-color: red;
+}

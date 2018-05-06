@@ -1,0 +1,18 @@
+.pinpoint_section li:nth-child(2n+1){
+  padding-bottom: 1%;
+  color:red;
+}
+
+.pinpoint_section{
+  padding-top:1%;
+  padding-bottom: 1%;
+}
+
+.pinpoint_section,
+.message_img_section {
+  background-color: rgba(3, 3, 3, 0.6);
+}
+
+.message_img_section {
+  padding:3%;
+}
